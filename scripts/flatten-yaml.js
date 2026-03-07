@@ -7,7 +7,12 @@ import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { parse } from 'yaml';
 
-const sourceDir = process.argv[2] || '/home/onomojo/Work/i18n-timezones/rails/locale';
+const sourceDir = process.argv[2];
+if (!sourceDir) {
+  console.error('Usage: node scripts/flatten-yaml.js <path-to-ruby-gem-locales>');
+  console.error('Example: node scripts/flatten-yaml.js ../i18n-timezones/rails/locale');
+  process.exit(1);
+}
 const outDir = new URL('../data/', import.meta.url).pathname;
 
 const files = readdirSync(sourceDir).filter(f => f.endsWith('.yml'));
