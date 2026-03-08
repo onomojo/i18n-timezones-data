@@ -1,3 +1,6 @@
 node_modules/
 *.gem
 /target
+/_build
+/deps
+mix.lock
