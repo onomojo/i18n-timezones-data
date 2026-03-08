@@ -1,29 +1,30 @@
 # i18n-timezones-data
 
-> Localized timezone name translations in 36 locales — CLDR-sourced, framework-agnostic YAML.
+> Localized timezone name translations in 36 locales — CLDR-sourced, framework-agnostic JSON.
 
-This repository contains the canonical translation data for timezone display names, covering **152 ActiveSupport timezones** across **36 locales**. The data is sourced from the [Unicode CLDR](https://cldr.unicode.org/) and stored as flat, human-readable YAML — easy to consume from any language or framework.
+This repository contains the canonical translation data for timezone display names, covering **152 ActiveSupport timezones** across **36 locales**. The data is sourced from the [Unicode CLDR](https://cldr.unicode.org/) and stored as flat, human-readable JSON — easy to consume from any language or framework.
 
 ## Who is this for?
 
-- **Library authors** building timezone tools in any language (Python, PHP, Go, etc.)
+- **Library authors** building timezone tools in any language (Python, PHP, Go, Rust, etc.)
 - **Ruby developers** using the [i18n-timezones](https://github.com/onomojo/i18n-timezones) gem
 - **JavaScript developers** — see the ready-to-use NPM package: [i18n-timezones](https://github.com/onomojo/i18n-timezones-js)
+- **Go developers** — import as a Go module with embedded data
 - **Anyone** who needs accurate, human-readable timezone names beyond what `Intl` or ICU provides out of the box
 
 ## Data Format
 
-Each locale is a single YAML file with flat key-value pairs — no nesting, no complex structure. Keys are ActiveSupport timezone names:
+Each locale is a single JSON file with flat key-value pairs — no nesting, no complex structure. Keys are ActiveSupport timezone names:
 
-```yaml
-# data/de.yml
-"International Date Line West": "Internationale Datumsgrenze (Westen)"
-"American Samoa": "Amerikanisch-Samoa"
-"Tokyo": "Tokio"
-"Eastern Time (US & Canada)": "Eastern Time (USA & Kanada)"
+```json
+// data/de.json
+{
+  "International Date Line West": "Internationale Datumsgrenze (Westen)",
+  "American Samoa": "Amerikanisch-Samoa",
+  "Tokyo": "Tokio",
+  "Eastern Time (US & Canada)": "Eastern Time (USA & Kanada)"
+}
 ```
-
-All keys are quoted to prevent YAML parsing issues.
 
 ## Coverage
 
@@ -34,19 +35,20 @@ All keys are quoted to prevent YAML parsing issues.
 
 ```
 data/
-  en.yml              # English (reference locale)
-  de.yml              # German
-  ja.yml              # Japanese
+  en.json             # English (reference locale)
+  de.json             # German
+  ja.json             # Japanese
   ...                 # 36 locale files total
 scripts/
-  flatten-yaml.js     # Import from Ruby gem's nested YAML format
   validate.js         # Validate consistency across all locale files
+data.go               # Go embed directive
+go.mod                # Go module definition
 ```
 
 ## Validation
 
 Every locale file is validated to ensure:
-- All 152 timezone keys are present (matching `en.yml`)
+- All 152 timezone keys are present (matching `en.json`)
 - No extra or missing keys
 - No empty values
 
@@ -54,6 +56,24 @@ Every locale file is validated to ensure:
 npm run validate
 # ✓ All 36 locale files validated successfully (152 keys each)
 ```
+
+## Usage
+
+### Go
+
+```go
+import data "github.com/onomojo/i18n-timezones-data"
+
+// data.FS is an embed.FS containing data/*.json
+```
+
+### Ruby
+
+Available as a gem: `gem install i18n-timezones-data`
+
+### Node.js
+
+Available as an npm package or via the higher-level [i18n-timezones](https://github.com/onomojo/i18n-timezones-js) package.
 
 ## Data Source
 

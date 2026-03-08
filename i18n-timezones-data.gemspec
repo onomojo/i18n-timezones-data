@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = "i18n-timezones-data"
   s.version     = File.read(File.expand_path("VERSION", __dir__)).strip
   s.summary     = "Localized timezone name translations in 36 locales"
-  s.description = "CLDR-sourced timezone name translations for 152 timezones across 36 locales. Flat YAML data files for use by i18n-timezones and other consumers."
+  s.description = "CLDR-sourced timezone name translations for 152 timezones across 36 locales. Flat JSON data files for use by i18n-timezones and other consumers."
   s.authors     = ["Brian McQuay"]
   s.email       = ["brian@onomojo.com"]
   s.homepage    = "https://github.com/onomojo/i18n-timezones-data"
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 3.1"
 
-  s.files = Dir["lib/**/*", "data/*.yml", "VERSION", "README.md", "LICENSE"]
+  s.files = Dir["lib/**/*", "data/*.json", "VERSION", "README.md", "LICENSE"]
   s.require_paths = ["lib"]
 
   s.metadata = {

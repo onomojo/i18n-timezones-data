@@ -1,6 +1,6 @@
 {
   "name": "i18n-timezones-data",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Localized timezone name translations in 36 locales (CLDR-sourced)",
   "license": "MIT",
@@ -10,8 +10,5 @@
   },
   "scripts": {
     "validate": "node scripts/validate.js"
-  },
-  "dependencies": {
-    "yaml": "^2.8.2"
   }
 }

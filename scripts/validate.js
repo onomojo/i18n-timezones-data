@@ -1,21 +1,19 @@
 #!/usr/bin/env node
 /**
- * Validates that all locale YAML files have the same keys as en.yml and no empty values.
+ * Validates that all locale JSON files have the same keys as en.json and no empty values.
  */
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
-import { parse } from 'yaml';
 
 const dataDir = new URL('../data/', import.meta.url).pathname;
-const files = readdirSync(dataDir).filter(f => f.endsWith('.yml'));
+const files = readdirSync(dataDir).filter(f => f.endsWith('.json'));
 
-const enRaw = readFileSync(join(dataDir, 'en.yml'), 'utf8');
-const enKeys = Object.keys(parse(enRaw));
+const enData = JSON.parse(readFileSync(join(dataDir, 'en.json'), 'utf8'));
+const enKeys = Object.keys(enData);
 let errors = 0;
 
 for (const file of files) {
-  const raw = readFileSync(join(dataDir, file), 'utf8');
-  const parsed = parse(raw);
+  const parsed = JSON.parse(readFileSync(join(dataDir, file), 'utf8'));
   const keys = Object.keys(parsed);
 
   // Check for missing keys
