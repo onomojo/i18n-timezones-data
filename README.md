@@ -11,6 +11,7 @@ This repository contains the canonical translation data for timezone display nam
 - **JavaScript developers** — see the ready-to-use NPM package: [i18n-timezones](https://github.com/onomojo/i18n-timezones-js)
 - **Go developers** — import as a Go module with embedded data via [i18n-timezones-go](https://github.com/onomojo/i18n-timezones-go)
 - **Rust developers** — available as a crate: [i18n-timezones](https://crates.io/crates/i18n-timezones) ([repo](https://github.com/onomojo/i18n-timezones-rs))
+- **Elixir developers** — available on hex.pm: [i18n_timezones](https://hex.pm/packages/i18n_timezones) ([repo](https://github.com/onomojo/i18n-timezones-ex))
 - **Anyone** who needs accurate, human-readable timezone names beyond what `Intl` or ICU provides out of the box
 
 ## Data Format
@@ -86,6 +87,15 @@ i18n-timezones = "*"
 
 Available as an npm package or via the higher-level [i18n-timezones](https://github.com/onomojo/i18n-timezones-js) package.
 
+### Elixir
+
+Available on [hex.pm](https://hex.pm/packages/i18n_timezones):
+
+```elixir
+# mix.exs
+{:i18n_timezones, "~> 0.1"}
+```
+
 ## Data Source
 
 All translations come from the [Unicode CLDR](https://cldr.unicode.org/) (Common Locale Data Repository) — the industry-standard source used by every major platform including iOS, Android, Chrome, and Java.
@@ -96,6 +106,7 @@ All translations come from the [Unicode CLDR](https://cldr.unicode.org/) (Common
 - **[i18n-timezones (Ruby)](https://github.com/onomojo/i18n-timezones)** — Rails gem for timezone translations
 - **[i18n-timezones (Go)](https://github.com/onomojo/i18n-timezones-go)** — Go module for timezone translations
 - **[i18n-timezones (Rust)](https://github.com/onomojo/i18n-timezones-rs)** — Rust crate for timezone translations ([crates.io](https://crates.io/crates/i18n-timezones))
+- **[i18n-timezones (Elixir)](https://github.com/onomojo/i18n-timezones-ex)** — Elixir package for timezone translations ([hex.pm](https://hex.pm/packages/i18n_timezones))
 - **[i18n-country-translations-data](https://github.com/onomojo/i18n-country-translations-data)** — Country name translations (168 locales)
 
 ## License
