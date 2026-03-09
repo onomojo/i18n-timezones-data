@@ -11,7 +11,7 @@ defmodule I18nTimezonesData.MixProject do
       start_permanent: Mix.env() == :prod,
       description: "CLDR-sourced timezone name translations for 152 timezones across 36 locales (data package)",
       package: package(),
-      deps: []
+      deps: [{:ex_doc, "~> 0.31", only: :dev, runtime: false}]
     ]
   end
 
